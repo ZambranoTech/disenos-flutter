@@ -1,3 +1,4 @@
+import 'package:disenos_app/config/helpers/sizes.dart';
 import 'package:disenos_app/presentation/widgets/boton_gordo.dart';
 import 'package:disenos_app/presentation/widgets/headers.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,11 @@ class EmergencyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    bool isLarge = false;
+    if (isLikeTabletHeight(MediaQuery.of(context).size)) {
+      isLarge = true;
+    } 
 
     final items = <ItemBoton>[
       ItemBoton( FontAwesomeIcons.carCrash, 'Motor Accident', const Color(0xff6989F5), const Color(0xff906EF5) ),
@@ -29,7 +35,7 @@ class EmergencyScreen extends StatelessWidget {
     return  Scaffold(
       body: Column(
         children: [
-          const HeaderView(),
+          isLarge ? const HeaderView() : const SizedBox(),
           Expanded(
             child: ListView(
               physics: const BouncingScrollPhysics(),

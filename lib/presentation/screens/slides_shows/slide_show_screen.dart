@@ -7,9 +7,14 @@ class SlideShowScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const MiSlidesShow(),
+
+    bool isLarge = false;
+    if ( MediaQuery.of(context).size.height > 500 ) {
+      isLarge = true;
+    } 
+
+    final children = [
+      const MiSlidesShow(),
         Expanded(
           child: SlidesShow(
             backgroundColor: Colors.red,
@@ -23,8 +28,17 @@ class SlideShowScreen extends StatelessWidget {
             ],
           ),
         ),
-      ],
+    ];
+
+    if (isLarge) {
+       return Column(
+      children: children,
     );
+    }
+      return Row(
+        children: children,
+      );
+   
   }
 }
 

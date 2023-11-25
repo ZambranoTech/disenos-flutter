@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Diseños en Flutter'),
+        title: const Text('Diseños en Flutter - Teléfono'),
         centerTitle: true,
       ),
       drawer: const SideMenu(),

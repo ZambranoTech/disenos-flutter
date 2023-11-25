@@ -1,3 +1,4 @@
+import 'package:disenos_app/config/helpers/sizes.dart';
 import 'package:disenos_app/presentation/widgets/pinterest_bottom_navigation.dart';
 import 'package:disenos_app/presentation/widgets/pinterest_masonry.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,12 @@ class PinterestScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final colors = Theme.of(context).colorScheme;
 
+    bool isLargeWidth = false;
+
+    if (isLikeTabletWidth(size)) {
+      isLargeWidth = true;
+    }
+
     return Scaffold(
       body: Center(
         child: Stack(
@@ -21,7 +28,7 @@ class PinterestScreen extends StatelessWidget {
               Positioned(
                 bottom: 10,
                 child: SizedBox(
-                  width: size.width,
+                  width: isLargeWidth ? size.width-300 : size.width,
                   child: Align(
                     child: PinterestMenu(
                       items: [

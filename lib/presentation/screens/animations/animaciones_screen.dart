@@ -144,12 +144,17 @@ class _Rectangulo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 70,
-      height: 70,
-      decoration: const BoxDecoration(
-        color: Colors.blue
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 70,
+          height: 70,
+          decoration: const BoxDecoration(
+            color: Colors.blue
+          ),
+        ),
+      ],
     );
   }
 }
